@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu with Flexbox</title>
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #003366;
+    overflow: hidden;
+}
+
+.nav li {
+    float: left;
+    position: relative;
+}
+
+.nav li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    background-color: #111;
+}
+
+/* Dropdown menu styling */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #003366;
+    min-width: 480px; /* Adjust width as needed */
+    z-index: 1;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+}
+
+.dropdown-content .column {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.dropdown-content .column a {
+    padding: 12px 16px;
+    display: block;
+    color: white;
+}
+
+.dropdown-content .column a:hover {
+    background-color: #575757;
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation menu -->
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Genre &#9662;</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <a href="#">Action</a>
+                    <a href="#">Adventure</a>
+                    <a href="#">Comedy</a>
+                    <a href="#">Drama</a>
+                    <a href="#">Horror</a>
+                    <a href="#">Mystery</a>
+                </div>
+                <div class="column">
+                    <a href="#">Animation</a>
+                    <a href="#">Biography</a>
+                    <a href="#">Documentary</a>
+                    <a href="#">Fantasy</a>
+                    <a href="#">Kids</a>
+                    <a href="#">Romance</a>
+                </div>
+                <div class="column">
+                    <a href="#">Sci-Fi & Fantasy</a>
+                    <a href="#">Talk</a>
+                    <a href="#">Thriller</a>
+                    <a href="#">War & Politics</a>
+                    <a href="#">Western</a>
+                </div>
+            </div>
+        </li>
+        <li><a href="#">Country</a></li>
+        <li><a href="#">Movies</a></li>
+        <li><a href="#">TV Series</a></li>
+        <li><a href="#">Top IMDb</a></li>
+    </ul>
+</body>
+</html>

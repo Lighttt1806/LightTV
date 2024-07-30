@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+#mainHeader {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  transition: top 0.9s ease;
+  z-index: 1000; /* Ensure the header is on top of other content */
+}
+.title{
+  font-family: "Inter", sans-serif;
+}
+
+.brandname{
+  font-family: "Kanit", sans-serif;
+  font-weight: 800;
+}
+.text-warning{
+  font-weight: 650;
+}
+header button i:active{
+  border: none;
+}
+header ul .nav-item{}
+header .navbar a{
+  text-decoration: none;
+  top: 0;
+  display: flex;
+  
+}
+header .collapse ul li a{
+  color: white;
+  margin: 10px;
+}
+header .collapse ul li a:hover{
+  color: aqua;
+}
+header .collapse ul li  ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #003366;
+  overflow: hidden;
+  width: 400px;
+}
+
+ul li {
+  float: left;
+  position: relative;
+  margin: none;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+ul li a:hover {
+  
+}
+
+/* Dropdown menu styling */
+ul li ul {
+  display: none;
+  position: absolute;
+  background-color: #003366;
+  min-width: 300px;
+  z-index: 1;
+}
+
+ul li ul li {
+  float: none;
+}
+
+ul li ul li a:hover {
+  background-color: #575757;
+}
+
+/* Show dropdown menu on hover */
+ul li:hover ul {
+  display: block;
+}
+
+
+
+header .i4user{
+  margin-top: 40px;
+}
+header .i4user a{
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  display: flex;
+}
+header .i4user .offcanvas .input-group{
+  height: 70px;
+  border: none;
+  border-bottom: 2px solid white;
+}
+header .i4user .offcanvas .input-group .input-group-text{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: black;
+  font-size: 2rem;
+  
+}
+header .i4user .offcanvas .input-group .form-control{
+  border: none;
+
+  background-color: black;
+  font-size: 2rem;
+}
+
+
+header .i4user p{
+  margin-left: 5px;
+}
+
+/*  */
+.filter-con {
+  display: flex;
+  justify-content:space-evenly;
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: rgb(56, 55, 55);
+  width: 180px;
+  height: 70px;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn span {
+  margin-left: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  height: 20vh;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+.dropdown-content label {
+  font-size: 13px;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content label:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+.filter-button {
+  background-color: dodgerblue;
+  width: 10%;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+
+/*  */
+.box-img {
+  position: relative; 
+  overflow: hidden; 
+  background-color: rgb(24, 80, 136);
+  border-radius: 10px;
+  height: 35vh;
+  border: 1px solid dodgerblue;
+}
+.box-img img {
+  width: 100%; 
+  height: 80%;
+  cursor: pointer;
+}
+.box-img img:hover{
+  opacity: .7;
+}
+.box-img p{
+  font-size: 11px;
+  padding: 5px;
+}
+.box-img h5{
+  font-size: 14px;
+  padding-left: 5px;
+  margin-top: 5px;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+          line-clamp: 1;
+  -webkit-box-orient: vertical;
+  cursor: pointer;
+}
+.box-img h5:hover{
+  color: yellow;
+}
+#late {
+  position: relative; 
+  overflow: hidden; 
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  height: 35vh;
+  border: 1px solid black;
+}
+.overlay { 
+  position: absolute; 
+  bottom: 10%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  display: flex; 
+  gap: 10px; 
+  opacity: 0; 
+  transition: opacity 0.3s, bottom 0.3s; 
+}
+.overlay-button { 
+  background: rgba(0, 0, 0, 0.5); 
+  border: none; 
+  color: white; 
+  padding: 10px; 
+  border-radius: 50%; 
+  cursor: pointer; 
+  width: 50px;
+   height: 50px;
+}
+.box-img:hover .overlay { 
+  bottom: 50%; 
+  opacity: 1; 
+}
+
+
+
+.mt-5 ul li a{
+  margin: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+/*  */
+.footer .col-lg-4 h5{
+  font-size: 20px;
+}
+.footer .col-lg-4 a{
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+.footer .col-lg-4 a:hover{
+  color: yellow;
+}
+.footer .col-lg-4 button{
+  background-color: dodgerblue;
+  width: 170px;
+  height: 35px;
+  border-radius: 15px;
+  margin-top: 7px;
+  border: none;
+  font-size: 13px;
+  text-align: start;
+  padding: 5px;
+}
+.footer .col-lg-6 a{
+  text-decoration: none;
+}
+
+/*  */
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+  
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+  .filter-con{
+    display: none;
+  }
+  
+}

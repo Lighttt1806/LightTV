@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Filters</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn span {
+    margin-left: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content label {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content label:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+.filter-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+}
+    </style>
+</head>
+<body>
+    <div class="filter-container">
+        <!-- Type Filter -->
+        <div class="dropdown">
+            <button class="dropbtn">Type <span>&#9660;</span></button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" value="movie" checked> Movie</label>
+                <label><input type="checkbox" value="tv-series"> TV Series</label>
+                <label><input type="checkbox" value="tv-show"> TV Show</label>
+            </div>
+        </div>
+        <!-- Genre Filter -->
+        <div class="dropdown">
+            <button class="dropbtn">Genre <span>&#9660;</span></button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" value="action"> Action</label>
+                <label><input type="checkbox" value="drama"> Drama</label>
+                <label><input type="checkbox" value="comedy"> Comedy</label>
+                <!-- Add more genres as needed -->
+            </div>
+        </div>
+        <!-- Country Filter -->
+        <div class="dropdown">
+            <button class="dropbtn">Country <span>&#9660;</span></button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" value="us"> US</label>
+                <label><input type="checkbox" value="uk"> UK</label>
+                <label><input type="checkbox" value="canada"> Canada</label>
+                <!-- Add more countries as needed -->
+            </div>
+        </div>
+        <!-- Year Filter -->
+        <div class="dropdown">
+            <button class="dropbtn">Year <span>&#9660;</span></button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" value="2024"> 2024</label>
+                <label><input type="checkbox" value="2023"> 2023</label>
+                <label><input type="checkbox" value="2022"> 2022</label>
+                <!-- Add more years as needed -->
+            </div>
+        </div>
+        <!-- Sort Filter -->
+        <div class="dropdown">
+            <button class="dropbtn">Sort <span>&#9660;</span></button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" value="latest"> Latest Update</label>
+                <label><input type="checkbox" value="rating"> Rating</label>
+                <!-- Add more sorting options as needed -->
+            </div>
+        </div>
+        <!-- Filter Button -->
+        <button class="filter-button">Filter</button>
+    </div>
+    <div id="results">
+        <!-- Filtered results will be displayed here -->
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+  document.querySelectorAll('.dropbtn').forEach((button) => {
+    button.addEventListener('click', function() {
+        // Close any open dropdowns first
+        document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
+            if (dropdown !== this.nextElementSibling) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Toggle the clicked dropdown
+        this.nextElementSibling.classList.toggle('show');
+    });
+});
+
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        document.querySelectorAll('.dropdown-content').forEach((dropdown) => {
+            dropdown.classList.remove('show');
+        });
+    }
+});
+
+document.querySelector('.filter-button').addEventListener('click', function() {
+    let selectedTypes = [];
+    let selectedGenres = [];
+    let selectedCountries = [];
+    let selectedYears = [];
+    let selectedSorts = [];
+
+    document.querySelectorAll('.dropdown-content input:checked').forEach((checkedBox) => {
+        let parentDropdown = checkedBox.closest('.dropdown-content');
+        if (parentDropdown.previousElementSibling.textContent.includes('Type')) {
+            selectedTypes.push(checkedBox.value);
+        } else if (parentDropdown.previousElementSibling.textContent.includes('Genre')) {
+            selectedGenres.push(checkedBox.value);
+        } else if (parentDropdown.previousElementSibling.textContent.includes('Country')) {
+            selectedCountries.push(checkedBox.value);
+        } else if (parentDropdown.previousElementSibling.textContent.includes('Year')) {
+            selectedYears.push(checkedBox.value);
+        } else if (parentDropdown.previousElementSibling.textContent.includes('Sort')) {
+            selectedSorts.push(checkedBox.value);
+        }
+    });
+
+    // Display the selected filters and apply filtering logic
+    let resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `
+        <p>Selected types: ${selectedTypes.join(', ')}</p>
+        <p>Selected genres: ${selectedGenres.join(', ')}</p>
+        <p>Selected countries: ${selectedCountries.join(', ')}</p>
+        <p>Selected years: ${selectedYears.join(', ')}</p>
+        <p>Selected sorts: ${selectedSorts.join(', ')}</p>
+    `;
+
+    console.log('Selected types:', selectedTypes);
+    console.log('Selected genres:', selectedGenres);
+    console.log('Selected countries:', selectedCountries);
+    console.log('Selected years:', selectedYears);
+    console.log('Selected sorts:', selectedSorts);
+    // Add your filtering logic here
+});
+
+</script>
+</html>
